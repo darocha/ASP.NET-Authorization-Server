@@ -1,0 +1,27 @@
+﻿@using System.Security.Claims;
+@using System.Threading;
+
+@{
+    ViewBag.Title = "Home";
+
+    var claims = @ClaimsPrincipal.Current.Claims;
+
+}
+
+<h2>Onyx Authorization Server</h2>
+
+
+@ClaimsPrincipal.Current.Identity.Name @ClaimsPrincipal.Current.Identity.IsAuthenticated<br />
+
+
+@foreach (var c in claims)
+{
+    
+    <p>@c.Type @c.Value</p>
+}
+
+
+<style>
+    body{background-color: #1c1c1c;
+    color: #919191;}
+</style>
